@@ -18,14 +18,9 @@ export default function NewGameForm({ addGame }) {
 
   return (
 		<form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="title">Título:</label>
-        <input type="text" id="title" value={title} onChange={(ev) => setTitle(ev.target.value)} />
-      </div>
-      <div>
-        <label htmlFor="cover">Capa:</label>
-        <input type="text" id="cover" value={cover} onChange={(ev) => setCover(ev.target.value)} />
-      </div>
+      <TextInput id="title" label="Título" value={title} onChange={(ev) => setTitle(ev.target.value)} />
+      <TextInput id="cover" label="Capa" value={cover} onChange={(ev) => setCover(ev.target.value)} />
+      <button>Adicionar</button>
       <button>Adicionar</button>
     </form>
   )
