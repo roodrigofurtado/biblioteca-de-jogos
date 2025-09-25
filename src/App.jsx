@@ -19,7 +19,7 @@ function App() {
             onRemove={() => removeGame(game.id)}
           />))
           : ( 
-            <h2>Parece que ainda não tem nada aqui. Tente adicionar alguns jogos!</h2>
+            <h2 style={{margin : "4rem auto"}}>Parece que ainda não tem nada aqui. Tente adicionar alguns jogos!</h2>
         )}
       </div>
     </div>
