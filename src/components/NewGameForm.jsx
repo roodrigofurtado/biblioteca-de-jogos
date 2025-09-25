@@ -21,7 +21,6 @@ export default function NewGameForm({ addGame }) {
       <TextInput id="title" label="Título" value={title} onChange={(ev) => setTitle(ev.target.value)} />
       <TextInput id="cover" label="Capa" value={cover} onChange={(ev) => setCover(ev.target.value)} />
       <button>Adicionar</button>
-      <button>Adicionar</button>
     </form>
   )
 }
