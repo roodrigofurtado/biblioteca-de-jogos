@@ -1,17 +1,31 @@
 import { useState } from "react"
 
-export default function App() {
+ function App() {
+  const [games, setGames] = useState(() => {
+    const storedGames = localStorage.getItem("obc-game-lib")
+    if (!storedGames) return []
+    return JSON.parse(storedGames)
+  })
+
   const [title, setTitle] = useState("")
   const [cover, setCover] = useState("")
   
   const addGame = ({ title, cover}) => {
     const id = Math.floor(Math.random() * 1000000)
     const game = { id, title, cover}
-    setGames(state => [...state, game])
+    setGames(state => {
+      const newState = [...state, game]
+      localStorage.setItem("obc-game-lib", JSON.stringify(newState))
+      return newState
+    })
   }
 
     const removeGame = (id) => {
-    setGames(state => state.filter(game => game.id !== id))
+    setGames(state => {
+      const newState = state.filter(game => game.id !== id)
+      localStorage.setItem("obc-game-lib", JSON.stringify(newState))
+      return newState
+    })
   }
 
   const handleSubmit = (ev) => {
@@ -62,3 +76,4 @@ export default function App() {
     </div>
   )
 }
+export default App
